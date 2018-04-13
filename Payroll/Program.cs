@@ -12,20 +12,19 @@ namespace Payroll
     {
         static void Main(string[] args)
         {
-            Executive dave = new Executive(3);
-            Console.WriteLine(dave.GetTotalCompanyContributions());
-            Console.WriteLine(dave.GetTotalPension());
-            Console.WriteLine(dave.EmployeeType());
-            
-            Manager james = new Manager(5);
-            Console.WriteLine(james.GetTotalCompanyContributions());
-            Console.WriteLine(james.GetTotalPension());
-            Console.WriteLine(james.EmployeeType());
+            List<Employee> employeeList = new List<Employee>()
+            {
+                new Executive(3),
+                new Manager(5),
+                new Director(5)
+            };
 
-            Director susan = new Director(5);
-            Console.WriteLine(susan.GetTotalCompanyContributions());
-            Console.WriteLine(susan.GetTotalPension());
-            Console.WriteLine(susan.EmployeeType());
+            foreach (var employee in employeeList)
+            {
+                Console.WriteLine(employee.GetTotalCompanyContributions());
+                Console.WriteLine(employee.GetTotalPension());
+                Console.WriteLine(employee.EmployeeType());
+            }
             Console.ReadLine();
         }
     }
